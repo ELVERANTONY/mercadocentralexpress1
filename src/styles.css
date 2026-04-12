@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border m-0 p-0;
+  }
+
+  body {
+    @apply bg-[#f2f2f2] text-slate-900 min-h-screen;
+    font-family: "Manrope", system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  @keyframes cta-wiggle {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    20% {
+      transform: translateX(-6px);
+    }
+    40% {
+      transform: translateX(6px);
+    }
+    60% {
+      transform: translateX(-4px);
+    }
+    80% {
+      transform: translateX(4px);
+    }
+  }
+
+  @keyframes cart-pop {
+    0%,
+    100% {
+      transform: scale(1) rotate(0deg);
+    }
+    25% {
+      transform: scale(1.35) rotate(-10deg);
+    }
+    50% {
+      transform: scale(1.35) rotate(10deg);
+    }
+    75% {
+      transform: scale(1.2) rotate(-6deg);
+    }
+  }
+
+  @keyframes badge-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.12);
+      opacity: 0.85;
+    }
+  }
+
+  @keyframes cart-bump {
+    0% {
+      transform: scale(1);
+    }
+    45% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fly-to-cart {
+    0% {
+      transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+      opacity: 1;
+      filter: saturate(1);
+    }
+    38% {
+      transform: translate3d(
+          calc(var(--dx) * 0.38),
+          calc(var(--dy) * 0.38 - var(--arc)),
+          0
+        )
+        scale(0.72) rotate(-7deg);
+      opacity: 0.95;
+      filter: saturate(1.05);
+    }
+    100% {
+      transform: translate3d(var(--dx), var(--dy), 0) scale(0.22) rotate(6deg);
+      opacity: 0;
+      filter: saturate(0.95);
+    }
+  }
+
+  .cta-wiggle {
+    animation: cta-wiggle 0.7s ease-in-out infinite;
+  }
+
+  .cart-pop {
+    animation: cart-pop 0.9s ease-in-out infinite;
+  }
+
+  .badge-pulse {
+    animation: badge-pulse 1.2s ease-in-out infinite;
+  }
+
+  .cart-bump {
+    animation: cart-bump 0.42s cubic-bezier(0.2, 0.8, 0.25, 1);
+  }
+
+  .fly-to-cart-image {
+    position: fixed;
+    z-index: 70;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.22);
+    will-change: transform, opacity;
+    animation: fly-to-cart 0.72s cubic-bezier(0.22, 0.7, 0.18, 1) forwards;
+  }
+
+}
