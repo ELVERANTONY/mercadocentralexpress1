@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#7c3aed",
-        "primary-dark": "#6d28d9",
-        "primary-soft": "#f5f3ff",
-        "primary-border": "#ddd6fe",
+        primary: "#ab2622",
+        "primary-dark": "#8f1f1c",
+        "primary-soft": "#fdeaea",
+        "primary-border": "#efb5b3",
       },
       boxShadow: {
         card: "0 20px 40px rgba(17, 24, 39, 0.08)",

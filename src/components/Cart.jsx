@@ -120,7 +120,7 @@ export default function Cart({
           <strong>{formatPrice(total)}</strong>
         </div>
         <button
-          className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-primary-dark px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_20px_rgba(124,58,237,0.25)] transition hover:-translate-y-0.5 hover:shadow-[0_16px_28px_rgba(124,58,237,0.3)] active:translate-y-0"
+          className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-primary-dark px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_20px_rgba(171,38,34,0.25)] transition hover:-translate-y-0.5 hover:shadow-[0_16px_28px_rgba(171,38,34,0.3)] active:translate-y-0"
           type="button"
           onClick={onCheckout}
           disabled={checkoutDisabled || cart.length === 0}

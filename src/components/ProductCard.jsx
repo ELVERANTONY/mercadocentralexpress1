@@ -226,7 +226,7 @@ export default function ProductCard({
             </div>
           )}
           <button
-            className={`inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-[0.95rem] font-semibold text-white shadow-[0_10px_20px_rgba(124,58,237,0.25)] transition hover:-translate-y-0.5 hover:shadow-[0_16px_28px_rgba(124,58,237,0.3)] active:translate-y-0 md:py-2.5 md:text-[0.9rem] ${
+            className={`inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-[0.95rem] font-semibold text-white shadow-[0_10px_20px_rgba(171,38,34,0.25)] transition hover:-translate-y-0.5 hover:shadow-[0_16px_28px_rgba(171,38,34,0.3)] active:translate-y-0 md:py-2.5 md:text-[0.9rem] ${
               selected
                 ? "bg-slate-900 hover:bg-slate-800"
                 : "bg-gradient-to-r from-primary to-primary-dark"
