@@ -354,59 +354,64 @@ export default function Catalogo() {
         </section>
       ) : (
         <div className="grid items-start gap-6 md:grid-cols-[minmax(0,1fr)_320px] lg:grid-cols-[minmax(0,1fr)_360px] xl:grid-cols-[minmax(0,1fr)_420px]">
-          <div className="col-span-full mb-1 grid gap-2 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
-            <div className="grid gap-1">
-              <div className="flex flex-wrap items-center gap-3">
-                <h2 className="text-2xl font-semibold text-slate-900">
+          <div className="col-span-full mb-2 rounded-[22px] border border-primary/10 bg-white/80 p-4 shadow-card backdrop-blur md:mb-1 md:rounded-none md:border-0 md:bg-transparent md:p-0 md:shadow-none md:backdrop-blur-0">
+            <div className="grid gap-3 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
+              <div className="grid gap-2">
+                <h2 className="text-[2.05rem] font-extrabold leading-[1.08] tracking-tight text-slate-900 md:text-2xl md:font-semibold md:leading-tight">
                   Pinturas con diamante 5D
                 </h2>
+                <p className="text-sm font-medium leading-relaxed text-slate-600 md:text-xs md:text-slate-500">
+                  Tenemos algo especial para ti.{" "}
+                  <span className="font-semibold text-slate-700">
+                    Elige uno o más juegos
+                  </span>{" "}
+                  (cada juego incluye 3 pinturas) y envía tu pedido por WhatsApp.
+                </p>
               </div>
-              <p className="text-xs font-medium text-slate-500">
-                Tenemos algo especial para ti. Elige uno o más juegos (cada juego incluye 3 pinturas) y envía tu pedido por WhatsApp.
-              </p>
-            </div>
-            <div className="flex flex-wrap items-center justify-start gap-2 md:justify-end">
-              <span className="rounded-full border border-primary/20 bg-primary-soft px-3 py-1 text-xs font-semibold text-primary">
-                <span className="inline-flex items-center gap-1.5">
-                  <svg
-                    className="h-4 w-4"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M10 17h4V6H2v11h2" />
-                    <path d="M14 8h5l3 4v5h-2" />
-                    <circle cx="7" cy="17" r="2" />
-                    <circle cx="17" cy="17" r="2" />
-                    <path d="M20 17h-1" />
-                  </svg>
-                  <span>Delivery GRATIS</span>
+
+              <div className="flex items-center gap-2 overflow-x-auto pb-1 -mx-1 px-1 md:mx-0 md:flex-wrap md:justify-end md:overflow-visible md:px-0 md:pb-0">
+                <span className="shrink-0 rounded-full border border-primary/20 bg-primary-soft px-3 py-1 text-xs font-semibold text-primary">
+                  <span className="inline-flex items-center gap-1.5">
+                    <svg
+                      className="h-4 w-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M10 17h4V6H2v11h2" />
+                      <path d="M14 8h5l3 4v5h-2" />
+                      <circle cx="7" cy="17" r="2" />
+                      <circle cx="17" cy="17" r="2" />
+                      <path d="M20 17h-1" />
+                    </svg>
+                    <span>Delivery GRATIS</span>
+                  </span>
                 </span>
-              </span>
-              <span className="rounded-full border border-primary/20 bg-primary-soft px-3 py-1 text-xs font-semibold text-primary">
-                <span className="inline-flex items-center gap-1.5">
-                  <svg
-                    className="h-4 w-4"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M3 7h18v10H3z" />
-                    <path d="M7 11h.01" />
-                    <path d="M17 13h.01" />
-                    <path d="M12 10a2 2 0 1 0 0 4a2 2 0 0 0 0-4Z" />
-                  </svg>
-                  <span>Pagas al recibir</span>
+                <span className="shrink-0 rounded-full border border-primary/20 bg-primary-soft px-3 py-1 text-xs font-semibold text-primary">
+                  <span className="inline-flex items-center gap-1.5">
+                    <svg
+                      className="h-4 w-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M3 7h18v10H3z" />
+                      <path d="M7 11h.01" />
+                      <path d="M17 13h.01" />
+                      <path d="M12 10a2 2 0 1 0 0 4a2 2 0 0 0 0-4Z" />
+                    </svg>
+                    <span>Pagas al recibir</span>
+                  </span>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
           <section className="grid items-stretch gap-5 sm:grid-cols-2 xl:grid-cols-3">
