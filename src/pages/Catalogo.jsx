@@ -12,6 +12,13 @@ const CART_STORAGE_KEY = "mce_cart_v1";
 
 const PACK_PRICE = 68;
 const PACK_SIZE_LABEL = "40x30 cm";
+const ORDER_ID_PREFIX = "MCE-";
+
+const createOrderId = () => {
+  const nowPart = Date.now().toString(36).toUpperCase();
+  const randPart = Math.random().toString(36).toUpperCase().slice(2, 6);
+  return `${ORDER_ID_PREFIX}${nowPart.slice(-4)}${randPart}`;
+};
 
 const hardcodedProducts = [
   {
@@ -262,7 +269,9 @@ export default function Catalogo() {
       return;
     }
 
-    const message = buildDiamondGamesMessage(cart, cartTotal);
+    const message = buildDiamondGamesMessage(cart, cartTotal, {
+      pedidoId: createOrderId(),
+    });
     openWhatsApp(PHONE_NUMBER, message);
     clearCart();
     setCartOpen(false);

@@ -18,9 +18,12 @@ const normalizeWhatsappText = (value) =>
     .replace(/\s+/g, " ")
     .trim();
 
-export const buildDiamondGamesMessage = (cart, total) => {
+export const buildDiamondGamesMessage = (cart, total, options = {}) => {
+  const { pedidoId = "" } = options;
+  const safePedidoId = normalizeWhatsappText(pedidoId);
+  const titlePrefix = safePedidoId ? `Pedido ID: ${safePedidoId} · ` : "";
   const lines = [
-    "*Pedido · Pinturas con Diamantes 5D*",
+    `*${titlePrefix}Pinturas con Diamantes 5D*`,
     "",
     "Hola, *he elegido:*",
     "",
