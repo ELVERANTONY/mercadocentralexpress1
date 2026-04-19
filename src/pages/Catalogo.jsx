@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Cart from "../components/Cart.jsx";
 import ProductCard from "../components/ProductCard.jsx";
 import { buildDiamondGamesMessage, openWhatsApp } from "../services/whatsapp.js";
@@ -50,6 +50,7 @@ const hardcodedProducts = [
     nombre: "Juego C: Estaciones del Alma 🍂",
     precio: PACK_PRICE,
     allowQuantity: false,
+    agotado: true,
     badge: PACK_SIZE_LABEL,
     badges: [
       { icon: "diamond", label: "5D" },
@@ -101,7 +102,7 @@ export default function Catalogo() {
           const id = item?.id || item?.key;
           if (!id || !PRODUCT_IDS.has(id)) return null;
           const product = hardcodedProducts.find((p) => p.id === id);
-          if (!product) return null;
+          if (!product || product.agotado) return null;
           return {
             key: product.id,
             id: product.id,

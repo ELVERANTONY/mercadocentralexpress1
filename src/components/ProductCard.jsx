@@ -1,4 +1,4 @@
-﻿import { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import QuantitySelector from "./QuantitySelector.jsx";
 import { formatPrice } from "../services/whatsapp.js";
 
@@ -9,6 +9,7 @@ export default function ProductCard({
   ctaLabel = "Agregar al carrito",
   ctaLabelSelected = "Quitar",
 }) {
+  const isAgotado = product.agotado;
   const imageRef = useRef(null);
   const discountEnabled = product.disableDiscount !== true;
   const hasVariants = product.variantes && product.variantes.length > 0;
@@ -118,7 +119,7 @@ export default function ProductCard({
         selected ? "border-primary/40 ring-2 ring-primary/15" : "border-slate-100"
       }`}
     >
-      <div className="relative aspect-square w-full overflow-hidden border-b border-slate-100 bg-white">
+      <div className={`relative aspect-square w-full overflow-hidden border-b border-slate-100 bg-white`}>
         {selectedImage ? (
           <img
             ref={imageRef}
@@ -132,6 +133,13 @@ export default function ProductCard({
         {selected ? (
           <div className="pointer-events-none absolute left-3 top-3 rounded-full bg-primary-soft px-3 py-1 text-xs font-semibold text-primary shadow-sm">
             Seleccionado
+          </div>
+        ) : null}
+        {isAgotado ? (
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="rounded-xl bg-slate-900/90 px-4 py-2 text-sm font-bold uppercase tracking-widest text-white shadow-2xl ring-1 ring-white/20">
+              Agotado
+            </div>
           </div>
         ) : null}
       </div>
@@ -227,14 +235,17 @@ export default function ProductCard({
           )}
           <button
             className={`inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-[0.95rem] font-semibold text-white shadow-[0_10px_20px_rgba(171,38,34,0.25)] transition hover:-translate-y-0.5 hover:shadow-[0_16px_28px_rgba(171,38,34,0.3)] active:translate-y-0 md:py-2.5 md:text-[0.9rem] ${
-              selected
-                ? "bg-slate-900 hover:bg-slate-800"
-                : "bg-gradient-to-r from-primary to-primary-dark"
+              isAgotado
+                ? "cursor-not-allowed bg-slate-300 shadow-none hover:translate-y-0"
+                : selected
+                  ? "bg-slate-900 hover:bg-slate-800"
+                  : "bg-gradient-to-r from-primary to-primary-dark"
             }`}
             type="button"
             onClick={handleAdd}
+            disabled={isAgotado}
           >
-            {selected ? ctaLabelSelected : ctaLabel}
+            {isAgotado ? "Agotado" : selected ? ctaLabelSelected : ctaLabel}
           </button>
         </div>
       </div>
