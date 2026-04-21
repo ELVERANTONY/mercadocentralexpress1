@@ -1,4 +1,4 @@
-﻿import QuantitySelector from "./QuantitySelector.jsx";
+import QuantitySelector from "./QuantitySelector.jsx";
 import { formatPrice } from "../services/whatsapp.js";
 
 export default function Cart({
@@ -24,7 +24,7 @@ export default function Cart({
       className={
         isMobile
           ? "fixed inset-0 z-30 h-screen w-screen overflow-auto bg-white shadow-card"
-          : "rounded-[22px] border border-slate-100 bg-white/95 p-6 shadow-[0_18px_36px_rgba(15,23,42,0.1)] backdrop-blur"
+          : "rounded-[24px] border border-slate-100 bg-white/90 p-6 shadow-premium backdrop-blur-md overflow-hidden"
       }
     >
       <div
@@ -112,7 +112,7 @@ export default function Cart({
         className={
           isMobile
             ? "sticky bottom-0 grid gap-4 border-t border-slate-100 bg-white px-6 pb-6 pt-4"
-            : "sticky bottom-0 grid gap-4 border-t border-slate-100 bg-white/95 pt-3"
+            : "grid gap-4 border-t border-slate-100 pt-3"
         }
       >
         <div className="flex items-center justify-between text-base">

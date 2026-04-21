@@ -279,7 +279,7 @@ export default function Catalogo() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-primary-soft via-white to-white">
+    <div className="min-h-screen bg-mesh">
       {notice ? (
         <div className="fixed left-1/2 top-4 z-[80] w-[min(92vw,520px)] -translate-x-1/2 rounded-full border border-primary/20 bg-white px-5 py-3 text-sm font-semibold text-slate-800 shadow-[0_18px_50px_rgba(15,23,42,0.15)]">
           {notice}
@@ -287,11 +287,11 @@ export default function Catalogo() {
       ) : null}
       <div className="mx-auto max-w-[1400px] px-3 pb-12 pt-4">
       <div
-        className={`sticky top-0 z-40 bg-gradient-to-b from-primary-soft via-white to-white pt-0 ${
+        className={`sticky top-0 z-40 pt-0 ${
           cartOpen ? "hidden md:block" : ""
         }`}
       >
-        <header className="mb-4 flex flex-col items-start justify-between gap-4 rounded-[20px] border border-primary/10 bg-white/85 px-6 py-4 shadow-card backdrop-blur sm:flex-row sm:items-center">
+        <header className="sticky top-0 z-50 mb-4 flex items-center justify-between gap-3 bg-white/90 px-4 py-2 shadow-sm md:mx-0 md:mb-6 md:rounded-[20px] md:border md:border-slate-100 md:px-6 md:py-4 md:shadow-card backdrop-blur-md">
         <div className="flex items-center gap-3">
           <img
             className="h-12 w-12 rounded-full border-2 border-primary bg-white object-cover"
@@ -355,63 +355,95 @@ export default function Catalogo() {
         </section>
       ) : (
         <div className="grid items-start gap-6 md:grid-cols-[minmax(0,1fr)_320px] lg:grid-cols-[minmax(0,1fr)_360px] xl:grid-cols-[minmax(0,1fr)_420px]">
-          <div className="col-span-full mb-2 rounded-[22px] border border-primary/10 bg-white/80 p-4 shadow-card backdrop-blur md:mb-1 md:rounded-none md:border-0 md:bg-transparent md:p-0 md:shadow-none md:backdrop-blur-0">
-            <div className="grid gap-3 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
-              <div className="grid gap-2">
-                <h2 className="text-[2.05rem] font-extrabold leading-[1.08] tracking-tight text-slate-900 md:text-2xl md:font-semibold md:leading-tight">
-                  Pinturas con diamante 5D
-                </h2>
-                <p className="text-sm font-medium leading-relaxed text-slate-600 md:text-xs md:text-slate-500">
-                  Tenemos algo especial para ti.{" "}
-                  <span className="font-semibold text-slate-700">
-                    Elige uno o más juegos
-                  </span>{" "}
-                  (cada juego incluye 3 pinturas) y envía tu pedido por WhatsApp.
-                </p>
-              </div>
+          <div className="col-span-full mb-4 grid gap-5">
+            {/* Headline section: Premium Badge style - Optimized for PC/Mobile */}
+            <div className="px-1 md:rounded-[20px] md:border md:border-white/50 md:bg-white/40 md:p-5 md:shadow-sm md:backdrop-blur-sm">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                {/* Left Side: Title & Badge - Above the sliding chips */}
+                <div className="flex flex-col items-start gap-1.5 relative z-10 bg-white/10 md:bg-transparent backdrop-blur-[2px] md:backdrop-blur-0 pr-2">
+                  <div className="flex flex-row items-center flex-wrap gap-2.5 md:gap-4">
+                    <h2 className="text-[20px] font-bold tracking-tight text-slate-900 md:text-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-600 bg-clip-text text-transparent">
+                      Pinturas con diamante 5D
+                    </h2>
+                    <span className="headline-chip-red">
+                      Kit Completo 🎨
+                    </span>
+                  </div>
+                </div>
 
-              <div className="flex items-center gap-2 overflow-x-auto pb-1 -mx-1 px-1 md:mx-0 md:flex-wrap md:justify-end md:overflow-visible md:px-0 md:pb-0">
-                <span className="shrink-0 rounded-full border border-primary/20 bg-primary-soft px-3 py-1 text-xs font-semibold text-primary">
-                  <span className="inline-flex items-center gap-1.5">
-                    <svg
-                      className="h-4 w-4"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M10 17h4V6H2v11h2" />
-                      <path d="M14 8h5l3 4v5h-2" />
-                      <circle cx="7" cy="17" r="2" />
-                      <circle cx="17" cy="17" r="2" />
-                      <path d="M20 17h-1" />
-                    </svg>
-                    <span>Delivery GRATIS</span>
-                  </span>
-                </span>
-                <span className="shrink-0 rounded-full border border-primary/20 bg-primary-soft px-3 py-1 text-xs font-semibold text-primary">
-                  <span className="inline-flex items-center gap-1.5">
-                    <svg
-                      className="h-4 w-4"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M3 7h18v10H3z" />
-                      <path d="M7 11h.01" />
-                      <path d="M17 13h.01" />
-                      <path d="M12 10a2 2 0 1 0 0 4a2 2 0 0 0 0-4Z" />
-                    </svg>
-                    <span>Pagas al recibir</span>
-                  </span>
-                </span>
+                {/* Right Side: Desktop chips (integrated marquee) - Slides behind title */}
+                <div className="hidden md:block flex-1 max-w-[950px] desktop-marquee-wrapper ml-[-180px] relative z-0">
+                  <div className="marquee-container flex gap-10 w-max">
+                    {[1, 2].map((loop) => (
+                      <div key={loop} className="flex gap-4">
+                        <span className="desktop-benefit-chip border-primary/20 text-slate-600">
+                          <svg className="w-4 h-4 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.435-4.5.5-5 1.488 1.442 3.5 3.242 3.5 5.5s-1.5 4.5-3.5 4.5c-1.25 0-1.5-1-1.5-1Z"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>
+                          </svg>
+                          Oferta limitada
+                        </span>
+                        <span className="desktop-benefit-chip border-slate-200 text-slate-600">
+                          <svg className="w-4 h-4 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <rect x="1" y="3" width="15" height="13"/><polyline points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+                          </svg>
+                          Delivery GRATIS
+                        </span>
+                        <span className="desktop-benefit-chip border-slate-200 text-slate-600">
+                          <svg className="w-4 h-4 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>
+                          </svg>
+                          Calidad Premium
+                        </span>
+                        <span className="desktop-benefit-chip border-slate-200 text-slate-600">
+                          <svg className="w-4 h-4 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>
+                          </svg>
+                          Pago Contraentrega
+                        </span>
+                        <span className="desktop-benefit-chip border-slate-200 text-slate-600">
+                          <svg className="w-4 h-4 text-teal-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/>
+                          </svg>
+                          Relajación Total
+                        </span>
+                        <span className="desktop-benefit-chip border-slate-200 text-slate-600">
+                          <svg className="w-4 h-4 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                          </svg>
+                          Garantía MCE
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Premium Infinite Marquee for mobile */}
+            <div className="md:hidden marquee-wrapper -mx-3 py-1">
+              <div className="marquee-container px-3">
+                {[1, 2].map((i) => (
+                  <div key={i} className="flex gap-3">
+                    <span className="mobile-chip-colored mobile-chip-green">
+                      <svg className="w-4 h-4 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="1" y="3" width="15" height="13"/><polyline points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+                      </svg>
+                      Delivery GRATIS
+                    </span>
+                    <span className="mobile-chip-colored mobile-chip-blue">
+                      <svg className="w-4 h-4 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>
+                      </svg>
+                      Pago Contraentrega
+                    </span>
+                    <span className="mobile-chip-colored mobile-chip-orange text-slate-600">
+                      <svg className="w-4 h-4 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.435-4.5.5-5 1.488 1.442 3.5 3.242 3.5 5.5s-1.5 4.5-3.5 4.5c-1.25 0-1.5-1-1.5-1Z"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>
+                      </svg>
+                      Oferta limitada
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -429,7 +461,7 @@ export default function Catalogo() {
               </div>
             ))}
           </section>
-          <div className="hidden md:block md:sticky md:top-28 md:z-10 md:self-start md:max-h-[calc(100vh-180px)] md:overflow-auto">
+          <div className="hidden md:block md:sticky md:top-28 md:z-10 md:self-start">
             <Cart
               cart={cart}
               total={cartTotal}

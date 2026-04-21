@@ -123,3 +123,322 @@
   }
 
 }
+
+@layer utilities {
+  @keyframes chip-drop {
+    0% {
+      transform: translateY(-26px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes chip-icon-bounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    30%       { transform: translateY(-4px) scale(1.18); }
+    55%       { transform: translateY(2px) scale(0.92); }
+    75%       { transform: translateY(-2px) scale(1.06); }
+  }
+
+  @keyframes chip-pop-in {
+    0%   { transform: scale(0.72) translateY(10px); opacity: 0; }
+    70%  { transform: scale(1.06) translateY(-2px); opacity: 1; }
+    100% { transform: scale(1) translateY(0);       opacity: 1; }
+  }
+
+  @keyframes volume-chip-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 rgba(171, 38, 34, 0);
+    }
+    45% {
+      transform: scale(1.06);
+      box-shadow: 0 10px 24px rgba(171, 38, 34, 0.18);
+    }
+  }
+
+  @keyframes volume-blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.45;
+    }
+  }
+
+  .chip-drop {
+    animation: chip-drop 0.62s cubic-bezier(0.18, 0.85, 0.2, 1)
+      var(--chip-delay, 0ms) both;
+  }
+
+  /* ── Premium Backgrounds ── */
+  .bg-mesh {
+    background-color: #f8fafc;
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(0, 0%, 100%, 1) 0, transparent 50%),
+      radial-gradient(at 50% 0%, hsla(0, 52%, 92%, 0.4) 0, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(210, 40%, 96%, 1) 0, transparent 50%),
+      radial-gradient(at 0% 100%, hsla(210, 40%, 96%, 1) 0, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(0, 52%, 92%, 0.4) 0, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  /* ── Glassmorphism ── */
+  .glass-header {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
+  /* ── Mobile colored chips (Premium Marquee) ── */
+  .mobile-chip-colored {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 12px;
+    padding: 8px 18px;
+    font-size: 13.5px;
+    font-weight: 800;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    white-space: nowrap;
+    flex-shrink: 0;
+    animation: float-subtle 4s ease-in-out infinite;
+  }
+
+  .mobile-chip-colored::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 30%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    transform: rotate(20deg);
+    animation: premium-shimmer 5s infinite ease-in-out;
+  }
+
+  .marquee-wrapper {
+    overflow: hidden;
+    width: 100%;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+  }
+
+  .desktop-marquee-wrapper {
+    overflow: hidden;
+    width: 100%;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 20%,
+      black 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 20%,
+      black 100%
+    );
+  }
+
+  .marquee-container {
+    display: flex;
+    gap: 12px;
+    width: max-content;
+    animation: marquee-scroll 30s linear infinite;
+  }
+
+  /* Red Headline Pill - Premium Feature Badge version */
+  .headline-chip-red {
+    background: #ab2622;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 99px;
+    font-weight: 800;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+      0 0 0 2px rgba(171, 38, 34, 0.1),
+      0 8px 16px -4px rgba(171, 38, 34, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .headline-chip-red::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    transform: rotate(25deg);
+    animation: premium-shimmer 4s infinite ease-in-out;
+  }
+
+  /* ── Premium Desktop Chips ── */
+  .desktop-benefit-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 99px;
+    padding: 8px 16px;
+    font-weight: 800;
+    font-size: 13.5px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    animation: float-subtle 4s ease-in-out infinite;
+  }
+
+  .desktop-benefit-chip::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 30%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.8),
+      transparent
+    );
+    transform: rotate(20deg);
+    animation: premium-shimmer 5s infinite ease-in-out;
+  }
+
+  .desktop-benefit-chip:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    border-color: rgba(171, 38, 34, 0.2);
+  }
+
+  @keyframes float-subtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+
+  /* ── Premium Shadows ── */
+  .shadow-premium {
+    box-shadow: 
+      0 12px 40px -10px rgba(15, 23, 42, 0.08),
+      0 4px 10px -2px rgba(15, 23, 42, 0.03);
+  }
+
+  .shadow-premium-hover:hover {
+    box-shadow: 
+      0 20px 50px -12px rgba(15, 23, 42, 0.14),
+      0 8px 15px -3px rgba(15, 23, 42, 0.05);
+  }
+
+  /* ── Animations ── */
+  @keyframes premium-shimmer {
+    0% { transform: translateX(-100%) rotate(25deg); opacity: 0; }
+    20% { opacity: 0.5; }
+    50% { transform: translateX(100%) rotate(25deg); opacity: 0; }
+    100% { transform: translateX(100%) rotate(25deg); opacity: 0; }
+  }
+
+  .shimmer-btn::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transform: rotate(25deg);
+    animation: premium-shimmer 4s infinite ease-in-out;
+  }
+
+  @keyframes premium-icon-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+
+  @keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 6px)); }
+  }
+
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    10% { transform: scale(1.06); }
+    20% { transform: scale(1); }
+    30% { transform: scale(1.04); }
+    40% { transform: scale(1); }
+  }
+
+  @keyframes chip-pop-in {
+    0% { transform: scale(0.9) translateY(8px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 20px rgba(171, 38, 34, 0.15);
+  }
+
+  .price-symbol {
+    font-size: 0.55em;
+    vertical-align: super;
+    margin-right: 2px;
+    font-weight: 700;
+  }
+
+  .price-cents {
+    font-size: 0.45em;
+    vertical-align: super;
+    margin-left: 1px;
+    font-weight: 800;
+  }
+}
